@@ -13,8 +13,7 @@ function saveLocation() {
 // Save on scroll
 window.addEventListener("scroll", saveLocation);
 
-// Save before unload
-window.addEventListener("beforeunload", saveLocation);
+
 
 // Restore scroll when page finishes loading
 window.addEventListener("load", () => {
