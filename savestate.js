@@ -1,29 +1,25 @@
-// Save current page and scroll position
+// Redirect to last page if needed
+const lastPage = localStorage.getItem("lastPage");
+if (lastPage && lastPage !== window.location.pathname) {
+  window.location.replace(lastPage);
+}
+
+// Save scroll position
 function saveLocation() {
   localStorage.setItem("lastPage", window.location.pathname);
   localStorage.setItem("scrollPos", window.scrollY);
 }
 
 // Save on scroll
-window.addEventListener("scroll", () => {
-  saveLocation();
-});
+window.addEventListener("scroll", saveLocation);
 
-// Save again before leaving
-window.addEventListener("beforeunload", () => {
-  saveLocation();
-});
+// Save before unload
+window.addEventListener("beforeunload", saveLocation);
 
-// Restore on load
+// Restore scroll when page finishes loading
 window.addEventListener("load", () => {
-  const lastPage = localStorage.getItem("lastPage");
   const scrollPos = localStorage.getItem("scrollPos");
-
-  // If not already on the last page, go to it
-  if (lastPage && lastPage !== window.location.pathname) {
-    window.location.href = lastPage;
-  } else if (scrollPos !== null) {
-    // Delay scroll restore slightly to wait for full render
+  if (scrollPos !== null) {
     setTimeout(() => {
       window.scrollTo(0, parseInt(scrollPos));
     }, 50);
