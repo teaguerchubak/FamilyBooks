@@ -56,9 +56,20 @@ function checkIfExistsAndGo(url) {
   fetch(url, { method: 'HEAD' })
     .then((res) => {
       if (res.ok) {
-        localStorage.setItem("lastPage", url);
+        // Create a temporary anchor to extract pathname from URL
+        const a = document.createElement('a');
+        a.href = url;
+        const nextPath = a.pathname;
+
+        // Save immediately before navigating
+        localStorage.setItem("lastPage", nextPath);
         localStorage.setItem("scrollPos", 0);
+
+        // Now go to the next chapter
         window.location.href = url;
       }
+    })
+    .catch(() => {
+      alert("Error loading chapter.");
     });
 }
