@@ -56,6 +56,8 @@ function checkIfExistsAndGo(url) {
   fetch(url, { method: 'HEAD' })
     .then((res) => {
       if (res.ok) {
+        localStorage.setItem("lastPage", url);
+        localStorage.setItem("scrollPos", 0);
         window.location.href = url;
       }
     });

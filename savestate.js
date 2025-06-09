@@ -2,9 +2,7 @@ const currentPath = window.location.pathname;
 const lastPage = localStorage.getItem("lastPage");
 const alreadyRedirected = sessionStorage.getItem("redirectedThisSession");
 const isHomePage =
-  currentPath.endsWith("/index.html") ||
-  currentPath === "/charlie/" ||
-  currentPath === "/charlie";
+  currentPath.endsWith("/index.html");
 
 if (isHomePage && lastPage && lastPage !== currentPath && !alreadyRedirected) {
   sessionStorage.setItem("redirectedThisSession", "true");
