@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.book-title {
+    font-size: 1.25rem;
+    padding: 1rem;
+
+}
+
+.contents {
+    padding: 1rem 0 1rem 1rem;
+}
+
+.chapter-nav {
+    padding-left: 10%;
+    padding-bottom: .5rem;
+    width: 80%;
+}
+
+.chapter-nav p {
+    padding: 1rem 0 1rem;
+    margin-bottom: .5rem;
+    border-top: solid 3px black;
+    border-bottom: solid 1px gray;
+}
+
+.chapter-nav li {
+    padding: .5rem 0;
+    list-style: none;
+    color: darkblue;
+}
+
+.chapter-nav li + li {
+    border-top: solid 1px lightgray;
+}
+
+/* INSIDE BOOK CHAPTERS */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.book-banner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+}
+
+.book-banner h1 {
+    font-size: 1.5rem;
+    padding: .5rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.banner-1 {
+    grid-column: 1;
+}
+
+.banner-2 {
+    grid-column: 2;
+}
+
+.chapter {
+    padding: 1rem;
+}
+
+.text {
+    padding: 1rem;
+}
+
+.text p {
+    text-align: justify;
+    padding-right: .5rem;
+    padding-bottom: 1rem;
+    line-height: 1.2rem;
+}
