@@ -55,6 +55,10 @@ header {
     margin-bottom: 1rem;
 }
 
+.main-banner {
+    justify-content: center;
+}
+
 .book-banner {
     display: grid;
     grid-template-columns: 1fr 1fr;
