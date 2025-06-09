@@ -1,6 +1,13 @@
-// Redirect to last page if needed
+const currentPath = window.location.pathname;
 const lastPage = localStorage.getItem("lastPage");
-if (lastPage && lastPage !== window.location.pathname) {
+const alreadyRedirected = sessionStorage.getItem("redirectedThisSession");
+const isHomePage =
+  currentPath.endsWith("/index.html") ||
+  currentPath === "/charlie/" ||
+  currentPath === "/charlie";
+
+if (isHomePage && lastPage && lastPage !== currentPath && !alreadyRedirected) {
+  sessionStorage.setItem("redirectedThisSession", "true");
   window.location.replace(lastPage);
 }
 
@@ -13,7 +20,8 @@ function saveLocation() {
 // Save on scroll
 window.addEventListener("scroll", saveLocation);
 
-
+// Save before unload
+window.addEventListener("beforeunload", saveLocation);
 
 // Restore scroll when page finishes loading
 window.addEventListener("load", () => {
