@@ -75,6 +75,8 @@ header {
     margin: 0 auto;
 }
 
+/* CHAPTER TEXT PAGES */
+
 .banner-1 {
     grid-column: 1;
 }
@@ -96,4 +98,9 @@ header {
     padding-right: .5rem;
     padding-bottom: 1rem;
     line-height: 1.2rem;
+}
+
+.poem {
+    font-style: italic;
+    padding-left: 1rem;
 }
