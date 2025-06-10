@@ -27,6 +27,6 @@ window.addEventListener("load", () => {
   if (scrollPos !== null) {
     setTimeout(() => {
       window.scrollTo(0, parseInt(scrollPos));
-    }, 50);
+    }, 100);
   }
 });
