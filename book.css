@@ -104,3 +104,30 @@ header {
     font-style: italic;
     padding-left: 1rem;
 }
+
+
+/* FOOTER */
+
+.footer-arrows {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    line-height: .5rem;
+}
+
+.footer-arrows h1 {
+    background-color: white;
+    margin: 1rem;
+    padding: 1rem;
+    width: 80%;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.footer-arrows h1:active, .book-banner h1:active {
+    background-color: black;
+    color: white;
+    border: solid 2px white;
+}
