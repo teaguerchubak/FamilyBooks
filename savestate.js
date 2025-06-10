@@ -24,9 +24,15 @@ window.addEventListener("beforeunload", saveLocation);
 // Restore scroll when page finishes loading
 window.addEventListener("load", () => {
   const scrollPos = localStorage.getItem("scrollPos");
-  if (scrollPos !== null) {
+  const lastPage = localStorage.getItem("lastPage");
+  const currentPath = window.location.pathname;
+
+  if (scrollPos !== null && lastPage === currentPath) {
     setTimeout(() => {
       window.scrollTo(0, parseInt(scrollPos));
-    }, 100);
+    }, 50);
+  } else {
+    // Always scroll to top if it's a new page
+    window.scrollTo(0, 0);
   }
 });
