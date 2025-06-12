@@ -10,13 +10,7 @@
 
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#2a2a2a" />
-    <script>
-    if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js")
-        .then(() => console.log("Service Worker registered!"))
-        .catch((err) => console.error("Service Worker failed:", err));
-    }
-    </script>
+    
 
 </head>
 <body>
@@ -45,22 +39,6 @@
     
     <footer>
         <button id="installBtn" hidden>Install App</button>
-
-        <script>
-        let deferredPrompt;
-        const installBtn = document.getElementById("installBtn");
-
-        window.addEventListener("beforeinstallprompt", (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installBtn.hidden = false;
-        });
-
-        installBtn.addEventListener("click", () => {
-            installBtn.hidden = true;
-            deferredPrompt.prompt();
-        });
-        </script>
     </footer>
 
 </body>
