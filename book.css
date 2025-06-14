@@ -85,6 +85,12 @@ header {
     grid-column: 2;
 }
 
+.section-name {
+    border-bottom: solid 1px lightgray;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
 .chapter {
     padding: 1rem;
 }
