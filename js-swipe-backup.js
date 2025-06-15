@@ -12,11 +12,11 @@ document.addEventListener('touchmove', (e) => {
   const currentX = e.changedTouches[0].screenX;
   const currentY = e.changedTouches[0].screenY;
 
-  const deltaX = currentX - startX;
-  const deltaY = currentY - startY;
+  const deltaX = Math.abs(currentX - startX);
+  const deltaY = Math.abs(currentY - startY);
 
-  // Only block vertical scroll if it's a strong horizontal swipe
-  if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
+  // Prevent vertical scrolling if swipe is mostly horizontal
+  if (deltaX > deltaY) {
     e.preventDefault();
   }
 }, { passive: false });
@@ -28,13 +28,10 @@ document.addEventListener('touchend', (e) => {
 }, { passive: true });
 
 function handleSwipe() {
-  const deltaX = endX - startX;
-  const deltaY = endY - startY;
+  const distance = endX - startX;
+  if (Math.abs(distance) < 50) return; // ignore short swipes
 
-  // Require strong horizontal swipe only
-  if (Math.abs(deltaX) < 50 || Math.abs(deltaX) < Math.abs(deltaY)) return;
-
-  if (deltaX < 0) {
+  if (distance < 0) {
     goToNextChapter();
   } else {
     goToPreviousChapter();
